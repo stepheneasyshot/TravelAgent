@@ -1,16 +1,23 @@
 import logging
-from dataclasses import dataclass
+import os
+from dataclasses import dataclass, field
 
 
 @dataclass
 class Config:
     """Agent 全局配置"""
 
-    model: str = "qwen3.5:4b-mlx"
+    # 模型提供商: "ollama" | "deepseek" | "openai"
+    provider: str = "deepseek"
+    model: str = "deepseek-chat"
     temperature: float = 0.0
-    max_tokens: int = 4096             # 最大生成 token 数 (关键：Ollama 默认仅 128!)
+    max_tokens: int = 8192
     max_search_results: int = 10
     log_level: int = logging.INFO
+
+    # DeepSeek / OpenAI 兼容 API 配置
+    deepseek_api_key: str = field(default_factory=lambda: os.getenv("DEEPSEEK_API_KEY", ""))
+    deepseek_base_url: str = "https://api.deepseek.com/v1"
 
 
 config = Config()

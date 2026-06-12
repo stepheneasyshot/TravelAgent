@@ -30,7 +30,7 @@ def main():
     agent = create_agent()
 
     print("=" * 50)
-    print("   CustomAgent 已启动")
+    print("   TravelAgent 已启动")
     print(f"   模型: {config.model}")
     print(f"   工具: 百度搜索 | 网页获取 | 时间查询")
     print("   输入 'quit' 退出")

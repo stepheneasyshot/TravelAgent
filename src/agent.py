@@ -2,11 +2,11 @@ import logging
 from datetime import datetime, timedelta
 
 from langchain_core.messages import AIMessage, SystemMessage
-from langchain_ollama import ChatOllama
 from langgraph.graph import END, START, StateGraph
 from langgraph.prebuilt import ToolNode
 
 from .config import config
+from .models import create_llm
 from .state import AgentState
 from .tools import ALL_TOOLS
 
@@ -77,7 +77,7 @@ def create_agent():
                   |                    v
                   +--- tools (执行工具) <-
     """
-    llm = ChatOllama(model=config.model, temperature=config.temperature, num_predict=config.max_tokens)
+    llm = create_llm()
     llm_with_tools = llm.bind_tools(ALL_TOOLS)
 
     def call_model(state: AgentState):

@@ -133,7 +133,7 @@ TravelPlan
 ## 项目结构
 
 ```
-CustomAgent/
+TravelAgent/
 ├── src/
 │   ├── config.py              # 模型/provider/日志配置
 │   ├── models.py              # LLM 工厂（provider 抽象）
@@ -146,7 +146,8 @@ CustomAgent/
 │   │   ├── time_tool.py       # 当前时间查询
 │   │   ├── web_search.py      # 联网搜索 + 网页获取
 │   │   └── travel_search.py   # POI 搜索 / 详情 / 交通
-│   └── api.py                 # FastAPI + SSE 端点（替代 gui.py）
+│   └── api.py                 # FastAPI + SSE 端点
+├── api.py                     # API 服务启动入口
 ├── main.py                    # CLI 入口
 ├── requirements.txt
 ├── CLAUDE.md
