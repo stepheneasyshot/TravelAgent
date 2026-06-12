@@ -287,7 +287,3 @@ config = Config(
 | httpx | HTTP 客户端 |
 | lxml | HTML 解析 |
 | pydantic | 结构化输出 Schema |
-
-## License
-
-MIT
